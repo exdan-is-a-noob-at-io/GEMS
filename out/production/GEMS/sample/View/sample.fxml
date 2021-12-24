@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.SampleController">
+  <tabs>
+    <Tab text="Monitor">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <GridPane layoutX="112.0" layoutY="89.0" prefHeight="369.6" prefWidth="600.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="282.0" minWidth="10.0" prefWidth="196.79998779296875" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.4000244140625" minWidth="10.0" prefWidth="384.0000122070312" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="350.0" prefWidth="166.0">
+                           <children>
+                              <ComboBox fx:id="monitorEventComboBox" onAction="#monitorEventSelected" prefWidth="150.0" promptText="Select Event">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </ComboBox>
+                              <ComboBox fx:id="monitorLocationComboBox" onAction="#monitorVenueSelected" prefWidth="150.0" promptText="Select Venue">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </ComboBox>
+                              <Separator prefWidth="200.0" />
+                              <RadioButton fx:id="monitorCheckInRadioButton" mnemonicParsing="false" text="Check In">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </RadioButton>
+                              <RadioButton fx:id="monitorCheckOutRadioButton" mnemonicParsing="false" text="Check Out">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </RadioButton>
+                              <Separator prefWidth="200.0" />
+                              <Button fx:id="monitorScanButton" mnemonicParsing="false" onAction="#monitorScanOnAction" text="      SCAN      ">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="monitorMassCheckoutButton" mnemonicParsing="false" onAction="#monitorMassCheckoutOnAction" text="Mass Checkout">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <GridPane.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </GridPane.margin>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="222.0" prefWidth="353.0" GridPane.columnIndex="1">
+                           <children>
+                              <ImageView fx:id="monitorQRCodeImageView" fitHeight="127.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../initialQRCode.PNG" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin></ImageView>
+                              <Label fx:id="monitorScanOutcomeLabel" text="Scan Successful">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Separator prefWidth="200.0" />
+                              <HBox prefHeight="0.0" prefWidth="353.0">
+                                 <children>
+                                    <GridPane prefHeight="168.0" prefWidth="361.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.79999542236328" minWidth="10.0" prefWidth="97.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="75.4000244140625" minWidth="10.0" prefWidth="57.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Max Capacity:">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Current Capacity:" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="monitorCurrentCapacityLabel" text="??" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label fx:id="monitorPercentFilledLabel" alignment="CENTER" text="0% filled" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="monitorMaxCapacityLabel" text="??" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                       </children>
+                                    </GridPane>
+                                    <VBox alignment="CENTER" prefHeight="168.0" prefWidth="130.0">
+                                       <children>
+                                          <Label text="Capacity">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <PieChart fx:id="monitorPieChart" prefHeight="150.0" prefWidth="176.0" stylesheets="@pieChart.css" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <GridPane.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </GridPane.margin>
+                        </VBox>
+                     </children>
+                  </GridPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Events">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <GridPane layoutX="56.0" layoutY="65.0" prefHeight="369.6" prefWidth="600.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="72.4" minHeight="10.0" prefHeight="72.4" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="63.999975585937506" minHeight="0.0" prefHeight="19.80002441406249" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="158.3999755859375" minHeight="10.0" prefHeight="158.3999755859375" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.39996337890625" minWidth="10.0" prefWidth="47.79998779296875" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.20001220703125" minWidth="10.0" prefWidth="142.20001220703125" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.60003662109375" minWidth="10.0" prefWidth="42.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.39996337890625" minWidth="10.0" prefWidth="154.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.20001220703125" minWidth="10.0" prefWidth="38.20001220703125" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.7999877929687" minWidth="10.0" prefWidth="159.7999877929687" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Event:" />
+                              <Label text="Venue:" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="eventsEventComboBox" onAction="#eventsEventSelected" prefWidth="150.0" promptText="Select Event" GridPane.columnIndex="1" />
+                              <ComboBox fx:id="eventsVenueComboBox" prefWidth="150.0" promptText="Select Venue" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Button fx:id="eventsVenuePlusButton" mnemonicParsing="false" onAction="#eventsAddVenueOnAction" text="+" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Button fx:id="eventsVenueMinusButton" mnemonicParsing="false" onAction="#eventsMinusVenueOnAction" text=" - " GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <Label text="Date:" GridPane.columnIndex="4" />
+                              <Label fx:id="eventsDateLabel" text="NIL" GridPane.columnIndex="5" />
+                           </children>
+                        </GridPane>
+                        <Separator prefWidth="200.0" GridPane.rowIndex="1" />
+                        <TableView fx:id="eventsTableView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                          <columns>
+                            <TableColumn fx:id="eventsVenueColumn" prefWidth="190.4000244140625" text="Venue" />
+                            <TableColumn fx:id="eventsVenueIDColumn" minWidth="0.0" prefWidth="145.60003662109375" text="Venue Id" />
+                              <TableColumn fx:id="eventsRoomNumberColumn" prefWidth="96.0" text="Room Number" />
+                              <TableColumn fx:id="eventsMaxCapacityColumn" prefWidth="128.7999267578125" text="Max Capacity" />
+                          </columns>
+                        </TableView>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+                           <children>
+                              <Button fx:id="eventsCreateNewEventButton" mnemonicParsing="false" onAction="#eventsCreateNewEventOnAction" text="Create New Event">
+                                 <HBox.margin>
+                                    <Insets left="15.0" right="15.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="eventsDeleteEventButton" mnemonicParsing="false" onAction="#eventsDeleteEventOnAction" text="Delete Event">
+                                 <HBox.margin>
+                                    <Insets left="15.0" right="15.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="eventsEditEventButton" mnemonicParsing="false" onAction="#eventsEditEventOnAction" text="Edit Event">
+                                 <HBox.margin>
+                                    <Insets left="15.0" right="15.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="eventsSaveEventButton" mnemonicParsing="false" onAction="#eventsSaveEventOnAction" text="Save Events">
+                                 <HBox.margin>
+                                    <Insets left="15.0" right="15.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="eventsEventDetailsHBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+                           <children>
+                              <Label text="Event Name:">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="eventsEventNameTextField" promptText="Event Name">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Label text="Date:">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <DatePicker fx:id="eventsDateDatePicker">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </DatePicker>
+                              <Button fx:id="eventsCreateEditButton" mnemonicParsing="false" onAction="#eventsSetEventDetailsOnAction" text="Create/Edit">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Trace">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <GridPane layoutX="247.0" layoutY="175.0" prefHeight="369.6" prefWidth="600.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="189.20001220703125" minWidth="10.0" prefWidth="69.79998779296875" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="356.1999816894531" minWidth="10.0" prefWidth="269.00001220703126" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="277.99999999999994" minWidth="10.0" prefWidth="236.40001220703124" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="62.400000000000006" minHeight="0.8000301361084041" prefHeight="25.399981689453124" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="139.9999698638916" minHeight="10.0" prefHeight="33.9999755859375" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="173.00001373291016" minHeight="10.0" prefHeight="38.800024414062506" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="196.60003509521482" minHeight="3.1999404907226676" prefHeight="24.199989318847656" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="238.00005950927732" minHeight="10.0" prefHeight="223.20001068115232" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="168.0" text="Contact Duration (Hours)">
+                                 <padding>
+                                    <Insets right="30.0" />
+                                 </padding>
+                              </Label>
+                              <Spinner fx:id="traceContactDurationSpinner" prefHeight="26.0" prefWidth="66.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <children>
+                              <Label text="Key">
+                                 <padding>
+                                    <Insets right="30.0" />
+                                 </padding>
+                              </Label>
+                              <PasswordField fx:id="traceKeyTextField" prefHeight="26.0" prefWidth="182.0" promptText="AES Key" />
+                           </children>
+                        </HBox>
+                        <Label text="Venue" />
+                        <Label text="Trace By" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="traceVenueComboBox" prefHeight="26.0" prefWidth="214.0" promptText="Select Venue" GridPane.columnIndex="1" />
+                        <ComboBox fx:id="traceTraceByComboBox" prefHeight="26.0" prefWidth="215.0" promptText="Select Method of Trace" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="traceTraceButton" mnemonicParsing="false" onAction="#traceTraceOnAction" prefHeight="26.0" prefWidth="232.0" text="Trace" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </Button>
+                        <TableView fx:id="traceTableView" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="4">
+                          <columns>
+                            <TableColumn fx:id="traceNoTableColumn" prefWidth="75.0" text="No." />
+                            <TableColumn fx:id="traceNameTableColumn" prefWidth="86.4000244140625" text="Name" />
+                              <TableColumn fx:id="traceContactTableColumn" prefWidth="86.39996337890625" text="Contact" />
+                              <TableColumn fx:id="traceEventTableColumn" prefWidth="91.99993896484375" text="Event" />
+                              <TableColumn fx:id="traceStartTimeTableColumn" prefWidth="112.0" text="Start TIme" />
+                              <TableColumn fx:id="traceEndTimeTableColumn" prefWidth="129.60003662109375" text="End Time" />
+                          </columns>
+                        </TableView>
+                        <Separator prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+                        <TextField fx:id="traceIndentificationTextField" prefHeight="26.0" prefWidth="188.0" promptText="Name/Contact" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets right="55.0" />
+                           </GridPane.margin>
+                        </TextField>
+                     </children>
+                  </GridPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Settings">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <GridPane layoutX="158.0" layoutY="166.0" prefHeight="369.6" prefWidth="600.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <GridPane prefHeight="159.0" prefWidth="280.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Venue" />
+                                    <Label text="Room Number" GridPane.rowIndex="1" />
+                                    <Label text="Max Capacity" GridPane.rowIndex="2" />
+                                    <TextField fx:id="settingsVenueTextField" promptText="Venue Name" GridPane.columnIndex="1" />
+                                    <TextField fx:id="settingsRoomNumberTextField" promptText="Room Number" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Spinner fx:id="settingsMaxCapacitySpinner" prefHeight="26.0" prefWidth="138.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" />
+                                 </padding>
+                              </GridPane>
+                              <TableView fx:id="settingsVenueTableView" prefHeight="200.0" prefWidth="200.0">
+                                <columns>
+                                  <TableColumn fx:id="settingsVenueIDColumn" prefWidth="56.79998779296875" text="Venue ID" />
+                                  <TableColumn fx:id="settingsVenueColumn" prefWidth="62.4000244140625" text="Venue" />
+                                    <TableColumn fx:id="settingsRoomNoColumn" minWidth="0.0" prefWidth="77.5999755859375" text="Room No." />
+                                    <TableColumn fx:id="settingsMaxPaxColumn" prefWidth="81.60003662109375" text="Max Pax" />
+                                </columns>
+                              </TableView>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="settingsAddButton" mnemonicParsing="false" onAction="#settingsAddVenuesOnAction" text="Add">
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="settingsEditButton" mnemonicParsing="false" onAction="#settingsEditVenuesOnAction" text="Edit">
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="settingsDeleteButton" mnemonicParsing="false" onAction="#settingsDeleteVenuesOnAction" text="Delete">
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="settingsSaveListButton" mnemonicParsing="false" onAction="#settingsSaveVenuesOnAction" text="Save List">
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets right="7.0" />
+                           </padding>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                           <children>
+                              <VBox alignment="CENTER_LEFT" prefHeight="350.0" prefWidth="300.0">
+                                 <children>
+                                    <HBox prefHeight="10.0" prefWidth="266.0">
+                                       <children>
+                                          <Label text="eQRCode Key">
+                                             <padding>
+                                                <Insets right="30.0" />
+                                             </padding>
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <PasswordField fx:id="settingsEQRCodeKeyTextField" promptText="AES Key" />
+                                       </children>
+                                    </HBox>
+                                    <RadioButton fx:id="settingsSimpleEQRCodeRadioButton" mnemonicParsing="false" onAction="#settingsSingleQRCodeOnAction" prefHeight="18.0" prefWidth="132.0" text="Single eQR Code" />
+                                    <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="272.0">
+                                       <children>
+                                          <Label text="Event:">
+                                             <HBox.margin>
+                                                <Insets right="73.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <ComboBox fx:id="settingsEventComboBox" prefWidth="150.0" promptText="Select Event" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="266.0">
+                                       <children>
+                                          <Label text="Name:">
+                                             <padding>
+                                                <Insets right="30.0" />
+                                             </padding></Label>
+                                          <TextField fx:id="settingsNameTextField" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="202.0" promptText="Peter Tan" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox prefHeight="0.0" prefWidth="266.0">
+                                       <children>
+                                          <Label text="Contact No.">
+                                             <padding>
+                                                <Insets right="30.0" />
+                                             </padding></Label>
+                                          <TextField fx:id="settingsContactNumberTextField" prefHeight="26.0" prefWidth="171.0" promptText="91234567" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox prefHeight="0.0" prefWidth="266.0">
+                                       <children>
+                                          <Label text="Venues Disallowed">
+                                             <HBox.margin>
+                                                <Insets right="15.0" />
+                                             </HBox.margin></Label>
+                                          <ComboBox fx:id="settingsVenuesDisallowedComboBox" prefWidth="150.0" promptText="Select Venue" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <GridPane alignment="CENTER" prefHeight="157.0" prefWidth="272.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.59998779296876" minWidth="10.0" prefWidth="220.8" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.79998779296875" minWidth="10.0" prefWidth="45.60000000000002" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="68.99997177124024" minHeight="10.0" prefHeight="46.19998779296875" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="54.39999389648437" minHeight="10.0" prefHeight="40.60001220703125" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <TableView fx:id="settingsDisallowedVenuesTableView" prefHeight="56.0" prefWidth="223.0" GridPane.rowSpan="2">
+                                            <columns>
+                                              <TableColumn fx:id="settingsVenueIDQRCodeColumn" prefWidth="84.80005472898483" text="Venue ID" />
+                                              <TableColumn fx:id="settingsVenueQRCodeColumn" prefWidth="135.199951171875" text="Venue" />
+                                            </columns>
+                                          </TableView>
+                                          <Button fx:id="settingsVenuePlusButton" mnemonicParsing="false" onAction="#settingsAddVenueOnAction" text="+" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                          <Button fx:id="settingsVenueMinusButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#settingsMinusVenueOnAction" prefHeight="26.0" prefWidth="25.0" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </GridPane>
+                                    <Separator prefWidth="200.0" />
+                                    <HBox prefHeight="0.0" prefWidth="272.0">
+                                       <children>
+                                          <RadioButton fx:id="settingsMultipleQRCodeRadioButton" mnemonicParsing="false" onAction="#settingsMultipleQRCodeOnAction" text="Multiple eQR Code">
+                                             <HBox.margin>
+                                                <Insets top="3.0" />
+                                             </HBox.margin>
+                                             <padding>
+                                                <Insets right="15.0" />
+                                             </padding>
+                                          </RadioButton>
+                                          <Button fx:id="settingsBrowseQRCodeButton" mnemonicParsing="false" onAction="#settingsBrowseQRCodeOnAction" text="Browse" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox prefHeight="1.0" prefWidth="272.0">
+                                       <children>
+                                          <Label text="File Path: ">
+                                             <padding>
+                                                <Insets right="30.0" />
+                                             </padding>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="settingsFilePathTextField" prefHeight="26.0" prefWidth="189.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <Separator prefWidth="200.0">
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" />
+                                       </VBox.margin>
+                                    </Separator>
+                                    <HBox prefHeight="40.0" prefWidth="272.0">
+                                       <children>
+                                          <Label text="Save">
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="settingsSaveTextField">
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                          <Button fx:id="settingsBrowseSaveLocationButton" mnemonicParsing="false" onAction="#settingsBrowseSaveLocationOnAction" text="Browse" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <Button fx:id="settingsGenerateQRCodeButton" alignment="CENTER" mnemonicParsing="false" onAction="#settingsGenerateQRCodeOnAction" text="          Generate          ">
+                                       <VBox.margin>
+                                          <Insets left="70.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="7.0" />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="7.0" />
+                                 </padding>
+                              </VBox>
+                           </children></VBox>
+                     </children>
+                  </GridPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="About">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <GridPane layoutX="182.0" layoutY="140.0" prefHeight="369.6" prefWidth="600.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="237.9999984741211" minHeight="10.0" prefHeight="210.00003662109376" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="202.4" minHeight="10.0" prefHeight="28.80000000000001" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="143.99997558593753" minHeight="0.0" prefHeight="28.00004882812499" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="69.60001220703126" minHeight="4.800024414062477" prefHeight="28.799951171875023" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ImageView fitHeight="146.0" fitWidth="306.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@../NUSHS_Logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" text="Generic Events Management System (GEMS)" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label text="NUS HIGH SCHOOL OF MATH AND SCIENCE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label text="Copyright 2020. All Rights Reserved" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                     </children>
+                  </GridPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
